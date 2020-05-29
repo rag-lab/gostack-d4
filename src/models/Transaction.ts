@@ -1,5 +1,10 @@
 import { uuid } from 'uuidv4';
 
+interface TransactionConstructor {
+  title: string;
+  value: number;
+  type: string;
+}
 class Transaction {
   id: string;
 
@@ -7,7 +12,7 @@ class Transaction {
 
   value: number;
 
-  type: 'income' | 'outcome';
+  type: string;
 
   constructor({ title, value, type }: Omit<Transaction, 'id'>) {
     this.id = uuid();
